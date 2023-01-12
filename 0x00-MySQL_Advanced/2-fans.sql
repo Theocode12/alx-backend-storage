@@ -1,6 +1,6 @@
 --Calculate/compute something is always power 
 --intensive… better to distribute the load!
 SELECT origin, SUM(fans) AS nb_fans 
-	from metal_bands
+	FROM metal_bands
 	GROUP BY origin
 	ORDER BY nb_fans DESC;
