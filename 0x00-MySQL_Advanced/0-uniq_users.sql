@@ -1,8 +1,7 @@
--- Make an attribute unique directly in the table schema will enforced your business rules 
---and avoid bugs in your application
-
+-- script creates a table users
+-- duplicate comment enforced
 CREATE TABLE IF NOT EXISTS users (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	email VARCHAR(255) NOT NULL UNIQUE,
-	name VARCHAR(255)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255)
 )
