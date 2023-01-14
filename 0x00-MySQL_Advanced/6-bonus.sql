@@ -1,7 +1,5 @@
 -- Write code in SQL is a nice level up!
 -- mysql procedures
-
-DROP PROCEDURE IF EXISTS AddBonus;
 DELIMITER $$ ;
 
 CREATE PROCEDURE AddBonus (
@@ -21,6 +19,6 @@ BEGIN
 		WHERE name = project_name;
 	INSERT INTO corrections (user_id, project_id, score)
 		VALUES (user_id, check_prid, score);
-END
+END ;
 
 DELIMITER ; $$
