@@ -18,7 +18,8 @@ if __name__ == '__main__':
         if log.get('method') == 'GET' and log.get('path') == '/status':
             status_check += 1
 
-    print("Methods:")
+    result = "Methods:\n"
     for method in methods:
-        print("\tmethod {}: {}".format(method, method_dict.get(method)))
-    print("{} status check".format(status_check))
+        result += "\tmethod {}: {}\n".format(method, method_dict.get(method))
+    result += "{} status check".format(status_check)
+    print(result)
