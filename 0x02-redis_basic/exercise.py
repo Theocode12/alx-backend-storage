@@ -7,12 +7,12 @@ import uuid
 import sys
 
 
-def count_calls(func: Callable) -> Callable:
+def count_calls(method: Callable) -> Callable:
     """decorator function"""
-    @wraps(func)
+    @wraps(method)
     def wrapper(self, *args, **kwargs):
-        self._redis.incr(func.__qualname__, 1)
-        res = func(self, *args, **kwargs)
+        self._redis.incr(method.__qualname__, 1)
+        res = method(self, *args, **kwargs)
         return res
     return wrapper
 
