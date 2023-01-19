@@ -9,7 +9,7 @@ def get_page(url: str) -> str:
     r = redis.Redis()
     key = 'count:' + url
     if not r.get(key):
-        r.setex('count'+url, 10, 1)
+        r.setex('count:'+url, 10, 1)
     else:
         r.incr(key, 1)
 
