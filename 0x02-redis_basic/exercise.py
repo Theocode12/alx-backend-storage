@@ -7,6 +7,17 @@ import uuid
 import sys
 
 
+def replay(method):
+    """Replays the history of a method"""
+    r = redis.Redis()
+    input = r.lrange(method.__qualname__ + ':inputs', 0, -1)
+    output = r.lrange(method.__qualname__ + ':outputs', 0, -1)
+    print("{} was called {} times:". format(method.__qualname__, len(input)))
+    for inp, out in zip(input, output):
+        print("{}(*{}) -> {}". format(method.__qualname__,
+                                      inp.decode(), out.decode()))
+
+
 def count_calls(method: Callable) -> Callable:
     """decorator function"""
     @wraps(method)
