@@ -12,5 +12,6 @@ def get_page(url: str) -> str:
         r.setex('count'+url, 10, 1)
     else:
         r.incr('key', 1)
+        r.expire(key, 10)
 
     return requests.get(url).content.decode()
